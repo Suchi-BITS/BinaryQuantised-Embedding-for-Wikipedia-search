@@ -29,7 +29,7 @@ This demo is intended for:
 - Benchmarking retrieval latency at scale
 
 ## Architecture Diagram
-```mermaid ```
+```mermaid
 flowchart TD
     U[User Query]
     E[SentenceTransformer<br/>(float32 embedding)]
