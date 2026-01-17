@@ -29,6 +29,28 @@ This demo is intended for:
 - Benchmarking retrieval latency at scale
 
 ## Architecture Diagram
+## 🏗️ Architecture (Mermaid)
+
+```mermaid
+flowchart TD
+    U[User Query]
+    E[SentenceTransformer\nfloat32 embedding]
+    Q[Binary Quantization\nubinary]
+    B[Binary FAISS Index\nRAM]
+    I[Candidate IDs\nTop K x Multiplier]
+    L[Lazy Load int8 Embeddings\nDisk]
+    R[Float32 x int8 Rescoring]
+    S[Final Top-K Sorting]
+    O[Titles and Text Display\nGradio UI]
+
+    U --> E
+    E --> Q
+    Q --> B
+    B --> I
+    I --> L
+    L --> R
+    R --> S
+    S --> O
 
 ```mermaid
 flowchart TD
